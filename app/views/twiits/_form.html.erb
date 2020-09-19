@@ -1,4 +1,7 @@
 <%= form_with(model: twiit, local: true) do |form| %>
+  <%= form.label :twiit, "Enter twiit" %>
+  <%= form.text_area :twiit %>
+  
   <% if twiit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(twiit.errors.count, "error") %> prohibited this twiit from being saved:</h2>

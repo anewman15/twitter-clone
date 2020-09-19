@@ -8,8 +8,10 @@ class TwiitsController < ApplicationController
   end
 
   # GET /twiits/1
-  # GET /twiits/1.json
+  # GET /twiits/1.json  
+
   def show
+    @twiit = Twiit.find(params[:id])
   end
 
   # GET /twiits/new
@@ -69,6 +71,6 @@ class TwiitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def twiit_params
-      params.fetch(:twiit, {})
+      params.require(:twiit).permit(:twiit)
     end
 end
