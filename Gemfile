@@ -11,8 +11,8 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-gem 'sassc-rails'
-gem 'sassc'
+# gem 'sassc-rails'
+# gem 'sassc'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -26,8 +26,11 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'bulma-sass'
+gem 'bulma-rails'
+# gem 'bulma-extensions-rails'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'devise', '~> 4.7', '>= 4.7.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -45,6 +48,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'guard', '~> 2.16', '>= 2.16.2'
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
 end
 
 group :test do
