@@ -4,7 +4,8 @@ class TwiitsController < ApplicationController
   # GET /twiits
   # GET /twiits.json
   def index
-    @twiits = Twiit.all
+    @twiits = Twiit.all.order("created_at DESC")
+    @twiit = Twiit.new
   end
 
   # GET /twiits/1
@@ -21,6 +22,7 @@ class TwiitsController < ApplicationController
 
   # GET /twiits/1/edit
   def edit
+    @twiit = Twiit.find(params[:id])
   end
 
   # POST /twiits
