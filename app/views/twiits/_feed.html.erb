@@ -4,8 +4,8 @@
     <div class="box">
       <article class="media">
         <div class="media-left">
-          <figure class="image is64x64">
-            <img src="https://bulma.io/images/placeholders/64x64.png">
+          <figure class="image is-64x64">
+            <%= gravatar_image_tag(twiit.user.email, size: 64, alt: twiit.user.name) if twiit.user %>
           </figure>
         </div>
         <div class="media-content">

@@ -1,10 +1,12 @@
 <article class="media box">
-  <figure class="media-left">
-    <p class="image is-64x64">
-      <img src="https://bulma.io/images/placeholders/64x64.png">
-    </p>
-    <p> <%= current_user.username if user_signed_in? %> </p>
-  </figure>
+  <% if user_signed_in? %>
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+      </p>
+      <p> <%= current_user.username if user_signed_in? %> </p>
+    </figure>
+  <% end %>
   <div class="media-content">       
     <%= simple_form_for @twiit do |f| %>
       <%= f.error_notification %>
@@ -13,8 +15,9 @@
           <%= f.input :twiit,
                       label: 'Twiit about something',
                       input_html: {class: "textarea"},
-                      wrapper: false, label_html: { class: "label"},
-                      placeholder: "Compose a new twiit"
+                      wrapper: false, label_html: { class: "label" },
+                      placeholder: "Compose a new twiit",
+                      autofocus: true
           %>
         </div>
       </div>
