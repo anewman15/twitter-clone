@@ -1,5 +1,6 @@
 class TwiitsController < ApplicationController
   before_action :set_twiit, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /twiits
   # GET /twiits.json
@@ -17,7 +18,7 @@ class TwiitsController < ApplicationController
 
   # GET /twiits/new
   def new
-    @twiit = Twiit.new
+    @twiit = current_user.twiits.build
   end
 
   # GET /twiits/1/edit
@@ -28,7 +29,7 @@ class TwiitsController < ApplicationController
   # POST /twiits
   # POST /twiits.json
   def create
-    @twiit = Twiit.new(twiit_params)
+    @twiit = current_user.twiits.build(twiit_params)
 
     respond_to do |format|
       if @twiit.save
@@ -73,6 +74,6 @@ class TwiitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def twiit_params
-      params.require(:twiit).permit(:twiit)
+      params.require(:twiit).permit(:twiit, :user_id)
     end
 end
